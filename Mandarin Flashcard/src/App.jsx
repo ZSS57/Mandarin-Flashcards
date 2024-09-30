@@ -6,7 +6,7 @@ const App = () => {
     { question: "教室", answer: "Classroom" },
     { question: "老师", answer: "Teacher" },
     { question: "我们", answer: "We" },
-    { question: "唱歌", answer: "Sing a song" },
+    { question: "唱歌", answer: "Sing" },
     { question: "跳舞", answer: "Dance" },
     { question: "教学", answer: "Teach" },
     { question: "学习", answer: "Study" },
