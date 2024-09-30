@@ -1,0 +1,50 @@
+.app {
+  height: 100vh;  
+  width: 100vw;  
+  text-align: center;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom, #3E64FF, pink); /* Gradient from blue to pink */
+
+}
+
+header {
+  /* background-color: #3E64FF; Blue color for the top */
+  padding: 20px;
+  text-align: center;
+  color: white;
+}
+
+
+.card {
+  margin: 20px auto;
+  padding: 40px;
+  border: 2px solid #007bff;
+  border-radius: 10px;
+  width: 300px;
+  font-size: 48px;
+  cursor: pointer;
+  user-select: none;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: rgb(19, 84, 236);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #12e09f;
+}
+
+h1 {
+  color: #efeff2; 
+}
+
+h2 {
+  color: #f2f2f6; 
+  font-size: 24px;
+
+}
