@@ -2,6 +2,20 @@ import React, { useState,useEffect } from 'react';
 import './App.css';
 import cardData from './cardData'; // Importing the card data from the separate file
 
+const NavBar = () => {
+  return (
+    <nav className="navbar">
+      <ul>
+        <li><a href="#chinese">Chinese</a></li>
+        <li><a href="#math">Math</a></li>
+        <li><a href="#code">Code</a></li>
+        <li><a href="#download">Download</a></li>
+        <li><a href="#about">About Us</a></li>
+      </ul>
+    </nav>
+  );
+};
+
 
 const Modal = ({ message, onClose }) => {
   return (
@@ -25,7 +39,9 @@ const App = () => {
   const [congratsMessage, setCongratsMessage] = useState(null); // To display congratulations message
   const [currentStreak, setCurrentStreak] = useState(0); // Track current streak of correct responses
   const [longestStreak, setLongestStreak] = useState(0); // Track the longest streak of correct responses
+  const [selectedBook, setSelectedBook] = useState('轻松学中文1 第一单元'); // State for selected book
 
+  
 
     // Fisher-Yates shuffle algorithm to randomize cards
   // Fisher-Yates shuffle algorithm to randomize cards
@@ -128,54 +144,105 @@ const closeModal = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const defaultCards = cardData.find((book) => book.unit === selectedBook);
+    if (defaultCards) {
+      setCards(defaultCards.words);
+    }
+  }, [selectedBook]);
+  
+
+  const handleBookChange = (e) => {
+    const selectedBook = e.target.value;
+    setSelectedBook(selectedBook);
+  
+    // Find the book data based on the selected unit
+    const selectedCards = cardData.find((book) => book.unit === selectedBook);
+    if (selectedCards) {
+      setCards(selectedCards.words);
+    } else {
+      setCards([]);
+    }
+  
+    setCurrentCard(0);
+    setShowAnswer(false);
+    setFeedback(null);
+    setUserGuess('');
+  };
+  
   return (
     <div className="app">
+  <NavBar />
+  <div className="layout-container">
+    
+    {/* Left Part: Header and Book Selection */}
+    <div className="left-part">
       <header>
-        <h1>Mandarin Flashcards</h1>
-        <h2>Learn common Mandarin phrases with flashcards!</h2>
-        <p>Total Cards: {cards.length}</p>
+        <img src="./images/logo2.jpg" className="app-logo" alt="logo" />
+        <h1>Learn Mandarin with YiLearn</h1>
+        <h2>Each learner has a unique path. Start with different books to align your practice with what you're learning in school, making it easier to reinforce your studies.</h2>
       </header>
 
+      <div className="book-selection">
+        <label htmlFor="book-select">Select the books: </label>
+        <select id="book-select" value={selectedBook} onChange={handleBookChange}>
+          <option value="轻松学中文1 第一单元">轻松学中文1 第一单元</option>
+          <option value="轻松学中文1 第二单元">轻松学中文1 第二单元</option>
+          <option value="轻松学中文1 第三单元">轻松学中文1 第三单元</option>
+          <option value="轻松学中文1 第四单元">轻松学中文1 第四单元</option>
+          <option value="轻松学中文2 第一单元">轻松学中文2 第一单元</option>
+          <option value="轻松学中文2 第二单元">轻松学中文2 第二单元</option>
+          <option value="轻松学中文2 第三单元">轻松学中文2 第三单元</option>
+          <option value="轻松学中文2 第四单元">轻松学中文2 第四单元</option>
+        </select>
+      </div>
+    </div>
+
+    {/* Right Part: Flashcards and Content */}
+    <div className="right-part">
       <div className="streak">
-        <p>Current Streak: {currentStreak}</p> {/* Display current streak */}
-        <p>Longest Streak: {longestStreak}</p> {/* Display longest streak */}
+        <p>Total Cards: {cards.length}</p>
+        <p>Current Streak: {currentStreak}</p>
+        <p>Longest Streak: {longestStreak}</p>
       </div>
 
-
-      <div className="card">
-        <div onClick={() => setShowAnswer(!showAnswer)}>
+      <div className="card-container">
+        <div className="card" onClick={() => setShowAnswer(!showAnswer)}>
           {showAnswer ? cards[currentCard].answer.join(', ') : cards[currentCard].question}
+        </div>
+
+        <div className="controls">
+          <input
+            type="text"
+            value={userGuess}
+            onChange={(e) => setUserGuess(e.target.value)}
+            onKeyPress={handleKeyPress}  
+            placeholder="Enter your guess"
+          />
+          <button onClick={handleSubmitGuess}>Submit</button>
+        </div>
+
+        {feedback && (
+          <p className={`feedback ${feedback === 'Correct!' ? 'correct' : 'incorrect'}`}>
+            {feedback}
+          </p>
+        )}
+
+        <div className="navigation">
+          <button onClick={handlePrevCard}>←</button>
+          <button onClick={handleNextCard}>→</button>
+          <button onClick={shuffleCards}>Shuffle Cards</button>
         </div>
       </div>
 
-
-      <div className="controls">
-        <input
-          type="text"
-          value={userGuess}
-          onChange={(e) => setUserGuess(e.target.value)}
-          onKeyPress={handleKeyPress}  
-          placeholder="Enter your guess"
-        />
-        <button onClick={handleSubmitGuess}>Submit</button>
-      </div>
-
-      {feedback && <p className={`feedback ${feedback === 'Correct!' ? 'correct' : 'incorrect'}`}>
-          {feedback} </p>}
-   
-
-    <div className="navigation">
-      <button onClick={handlePrevCard}> ← </button>
-      <button onClick={handleNextCard}> → </button>
-      <button onClick={shuffleCards}>Shuffle Cards</button> {/* Shuffle button */}
-    </div>
-
-  
-    {showModal && (
+      {showModal && (
         <Modal message={congratsMessage} onClose={closeModal} />
       )}
-
     </div>
+  </div>
+</div>
+
+
   );
 };
 
