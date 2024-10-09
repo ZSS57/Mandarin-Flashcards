@@ -1,9 +1,10 @@
 .app {
-  height: 100vh;  
+  min-height: 100vh;  
   width: 100vw;  
   text-align: center;
   font-family: Arial, sans-serif;
   background: rgb(29, 171, 207);
+  
 }
 
 header {
@@ -19,9 +20,9 @@ header {
   padding: 40px;
   border: 2px solid #85c5e8;
   border-radius: 10px;
-  width: 400px;
-  height: 150px;
-  font-size: 70px;
+  width: 500px;
+  height: 200px;
+  font-size: 60px;
   cursor: pointer;
   user-select: none;
   
@@ -32,6 +33,7 @@ header {
   justify-content: center; /* Horizontally center the content */
   align-items: center; /* Vertically center the content */
   text-align: center; /* Optional: Center-align the text itself if it wraps */
+  
 }
 
 
@@ -42,7 +44,7 @@ header {
 .controls input {
   padding: 10px;
   font-size: 16px;
-  width: 30%; /* input box length */
+  width: 45%; /* input box length */
   margin-right: 10px;  /* Add space to the right of the input box (between input and button) */
   margin-bottom: 10px;
   margin-top: 20px;
@@ -253,9 +255,9 @@ header {
 }
 
 .right-part {
-  flex: 2; /* Take up more space compared to the left part */
+  flex:2; /* Take up more space compared to the left part */
   text-align: center; /* Center align the content in the right part */
-  padding-left: 4rem;
+  padding-left: 5rem;
 }
 
 .card-container {

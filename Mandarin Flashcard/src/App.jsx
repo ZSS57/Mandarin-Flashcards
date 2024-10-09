@@ -39,7 +39,7 @@ const App = () => {
   const [congratsMessage, setCongratsMessage] = useState(null); // To display congratulations message
   const [currentStreak, setCurrentStreak] = useState(0); // Track current streak of correct responses
   const [longestStreak, setLongestStreak] = useState(0); // Track the longest streak of correct responses
-  const [selectedBook, setSelectedBook] = useState('轻松学中文1 第一单元'); // State for selected book
+  const [selectedBook, setSelectedBook] = useState('轻松学中文3 第一单元'); // State for selected book
 
   
 
@@ -169,7 +169,7 @@ const closeModal = () => {
     setFeedback(null);
     setUserGuess('');
   };
-  
+
   return (
     <div className="app">
   <NavBar />
@@ -186,14 +186,25 @@ const closeModal = () => {
       <div className="book-selection">
         <label htmlFor="book-select">Select the books: </label>
         <select id="book-select" value={selectedBook} onChange={handleBookChange}>
-          <option value="轻松学中文1 第一单元">轻松学中文1 第一单元</option>
-          <option value="轻松学中文1 第二单元">轻松学中文1 第二单元</option>
-          <option value="轻松学中文1 第三单元">轻松学中文1 第三单元</option>
-          <option value="轻松学中文1 第四单元">轻松学中文1 第四单元</option>
-          <option value="轻松学中文2 第一单元">轻松学中文2 第一单元</option>
-          <option value="轻松学中文2 第二单元">轻松学中文2 第二单元</option>
-          <option value="轻松学中文2 第三单元">轻松学中文2 第三单元</option>
-          <option value="轻松学中文2 第四单元">轻松学中文2 第四单元</option>
+          <option value="轻松学中文3 第一单元">轻松学中文3 第一单元</option>
+          <option value="轻松学中文3 第二单元">轻松学中文3 第二单元</option>
+          <option value="轻松学中文3 第三单元">轻松学中文3 第三单元</option>
+          <option value="轻松学中文3 第四单元">轻松学中文3 第四单元</option>
+          <option value="轻松学中文3 第五单元">轻松学中文3 第五单元</option>
+          <option value="中文2 第1课">中文2 第1课</option>
+          <option value="中文2 第2课">中文2 第2课</option>
+          <option value="中文2 第3课">中文2 第3课</option>
+          <option value="中文2 第4课">中文2 第4课</option>
+          <option value="中文2 第5课">中文2 第5课</option>
+          <option value="中文2 第6课">中文2 第6课</option>
+          <option value="中文2 第7课">中文2 第7课</option>
+          <option value="中文2 第8课">中文2 第8课</option>
+          <option value="中文2 第9课">中文2 第9课</option>
+          <option value="中文2 第10课">中文2 第10课</option>
+          <option value="中文2 第11课">中文2 第11课</option>
+          <option value="中文2 第12课">中文2 第12课</option>
+
+        
         </select>
       </div>
     </div>
@@ -210,6 +221,14 @@ const closeModal = () => {
         <div className="card" onClick={() => setShowAnswer(!showAnswer)}>
           {showAnswer ? cards[currentCard].answer.join(', ') : cards[currentCard].question}
         </div>
+
+        {/* <div className="card-container">
+  <div className="card" onClick={() => setShowAnswer(!showAnswer)}
+    style={{ fontSize: calculateFontSize(showAnswer ? cards[currentCard].answer.join(', ') : cards[currentCard].question) }}>
+    {showAnswer ? cards[currentCard].answer.join(', ') : cards[currentCard].question}
+  </div> */}
+
+
 
         <div className="controls">
           <input
