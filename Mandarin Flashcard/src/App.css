@@ -264,36 +264,175 @@ header {
   margin-top: 2rem; /* Add some spacing above the flashcards */
 }
 
-/* 
-.layout-container {
-  display: flex; 
-  align-items: flex-start; 
+/* App.css */
 
+
+/* specific topics */
+/* App.css */
+.specific-topics {
+  margin-top: 20px;
+  padding: 20px;
+  background-color:rgb(29, 171, 207);
+  border-top: 0.5px solid #ddd;
+   /* Restrict the width to make it fit on the left */
+ 
+}
+.specific-topics h2{
+  display: inline-block;
+  font-size: 25px;
+  background-color: #b870e6;
+  color:white;
+  padding:5px;
+  margin-top: 2px;;
+  text-align:left;
 }
 
 
-.book-selection-left {
-  flex: 0 0 200px; 
-  padding-left: 8rem; 
-  padding-top: 8rem;
-  padding: right 0.1em;
+
+.specific-topics-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px; /* Space between left and right sides */
+}
+
+.festival-details {
+  flex: 1;
+  max-width: 50%;
+  color: white;
+  font-size: 20px;
+}
+
+.festival-media {
+  flex: 1;
+  max-width: 50%;
+}
+
+.festival-selection {
+  margin-bottom: 20px;
+
 
 }
 
-.book-selection-left label {
-  font-size: 1.5rem; 
-  font-weight: bold; 
-
+.festival-selection select {
+  width: 200px;  /* Adjust the width to your preferred size */
+  padding: 5px;  /* Optional: Adds some padding for better appearance */
+  font-size: 16px;  /* Optional: Adjust font size if needed */
 }
 
-.book-selection-left select {
-  width: 130%; 
-  padding: 0.5rem; 
-  font-size: 1rem; 
-  margin-top: 0.5rem;
+
+.festival-description p {
+  margin-bottom: 10px;
 }
 
-.main-content-center {
-  flex: 1; 
-  text-align: center; 
-} */
+.festival-media video {
+  width: 100%;
+  max-width: 600px;
+}
+
+
+
+
+/* festival game */
+
+.specific-topics-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.festival-game-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.festival-game {
+  max-width: 400px;
+  margin-bottom: 50px;
+}
+
+.game-container {
+  display: flex;
+  gap: 20px;
+}
+
+.words, .meanings {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+
+.words button,
+.meanings button {
+  height: 50px;  /* 设置固定高度 */
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button.selected {
+  background-color: #b870e6;
+  color: white;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.matches {
+  max-width: 300px;
+  margin-left: 20px;
+  font-size: 20px;
+  color:white;
+  
+}
+
+.festival-media {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Vocabulary Title - Make it Bigger and Shiny */
+.vocabulary-title {
+  font-size: 2rem; /* Make the title larger */
+  color: #ffd700; /* Golden color for a "shiny" look */
+  
+  margin-bottom: 20px;
+}
+
+/* Retake Button */
+.retake-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.retake-button {
+  background-color: #007bff; /* Blue background */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-bottom:50px
+}
+
+.retake-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+

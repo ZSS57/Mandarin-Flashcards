@@ -1,6 +1,9 @@
 import React, { useState,useEffect } from 'react';
 import './App.css';
 import cardData from './cardData'; // Importing the card data from the separate file
+import SpecificTopics from './topics'; // Import the new component
+import Footer from './Footer';                // Importing the Footer component
+
 
 const NavBar = () => {
   return (
@@ -259,6 +262,9 @@ const closeModal = () => {
       )}
     </div>
   </div>
+  <SpecificTopics />
+  <Footer />
+
 </div>
 
 
